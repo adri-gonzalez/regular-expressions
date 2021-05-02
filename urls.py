@@ -7,13 +7,19 @@ https://youtube.com
 https://www.nasa.gov
 '''
 
+# math any url domains:
+# s? => makes that s optional
+# (www\.)? => make this group optional
 pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
 
-subbed_urls = pattern.sub(r'\2\3', urls)
 
+# replace urls
+# substitute this urls to groups, like slice or strip
+subbed_urls = pattern.sub(r'\2\3', urls)
 print(subbed_urls)
 
-# matches = pattern.finditer(urls)
-
-# for match in matches:
-#     print(match.group(3))
+# lets get the groups within url
+for match in matches:
+    print(match.group(1))
+    print(match.group(2))
+    print(match.group(3))
